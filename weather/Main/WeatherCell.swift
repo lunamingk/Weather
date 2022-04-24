@@ -8,17 +8,26 @@
 import UIKit
 
 class WeatherCell: UITableViewCell {
+    //UITableViewCell을 상속받음
+    
     let containerview = UIView()
     let locationLabel = UILabel()
     let emojiLabel = UILabel()
     let degreeLabel = UILabel()
-    let degreeLabel2 = UILabel()
+    let degreeLabel2 = UILabel.init()
+    
+    // 생성만 하면 뷰에 안나타남. addsubview 함수를 실행해야 화면에 나타난다.
+    // 위치를 잡아주는건 snp(snapkit) autoLayout
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        // init > 생성하는걸 override 덮어쓴다.
+        // 애플이 기본 만들어놓은 생성은 진짜 생성만 한다.
+        // 우리는 생성할 때 configure, setUpLayout을 실행해야 함.
+        
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        configure()
-        setUpLayout()
+        configure() // 값을 설정하는 것
+        setUpLayout() // addSubview, 위치 잡는거
     }
     
     required init?(coder: NSCoder) {
@@ -31,15 +40,19 @@ class WeatherCell: UITableViewCell {
         containerview.backgroundColor = .lightGray
         containerview.layer.cornerRadius = 10
         locationLabel.text = "서울"
-        locationLabel.font = UIFont.systemFont(ofSize: 20)
+        locationLabel.font = .systemFont(ofSize: 20)
         emojiLabel.text = "🌞"
-        emojiLabel.font = UIFont.systemFont(ofSize: 50)
+        emojiLabel.font = .systemFont(ofSize: 50)
         degreeLabel.text = "19"
         degreeLabel2.text = " °C"
-        degreeLabel.font = UIFont.systemFont(ofSize: 60)
+        degreeLabel.font = .systemFont(ofSize: 60)
         degreeLabel.textColor = .white
-        degreeLabel2.font = UIFont.systemFont(ofSize: 30)
+        degreeLabel2.font = .systemFont(ofSize: 30)
         degreeLabel2.textColor = .white
+        
+        // Type 생략 가능
+        //degreeLabel2.textColor =
+        //degreeLabel2.textColor = UIColor.white
     }
     
     func setUpLayout() {
