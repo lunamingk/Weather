@@ -87,4 +87,11 @@ class WeatherCell: UITableViewCell {
             make.right.equalToSuperview().inset(10)
         }
     }
+    
+    func setWeather(weather: Weather) {
+        locationLabel.text = weather.location
+        emojiLabel.text = weather.emoji
+        degreeLabel.text = "\(weather.temperature)"
+        // type을 float에서 string으로 만들기 위해 \()사용
+    }
 }

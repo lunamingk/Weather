@@ -11,8 +11,18 @@ import SnapKit
 class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
    //MainViewController 이거 한개가 3개의 타입을 가질 수 있다
     
-    
     let tableView = UITableView()
+    let weather = [
+        Weather(location: "서울", temperature: 19, emoji: "🌞"),
+        Weather(location: "부산", temperature: 25, emoji: "🌞"),
+        Weather(location: "대구", temperature: 27, emoji: "🌞"),
+        Weather(location: "울산", temperature: 27, emoji: "🌞"),
+        Weather(location: "마산", temperature: 26, emoji: "🌞"),
+        Weather(location: "수원", temperature: 20, emoji: "🌞"),
+        Weather(location: "속초", temperature: 18, emoji: "🌞"),
+        Weather(location: "강릉", temperature: 18, emoji: "🌞"),
+        Weather(location: "용인", temperature: 20, emoji: "🌞")
+    ]
 
     override func viewDidLoad() { // override (덮어쓴다) viewDidLoad(UIViewController안에 있는걸)
         super.viewDidLoad() // super(UIViewController가 부모임) 덮어쓸 땐 이름이 같아야 됨!
@@ -63,15 +73,21 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return tableView.dequeueReusableCell(withIdentifier: "WeatherCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "WeatherCell", for: indexPath) as! WeatherCell
+        
+        cell.setWeather(weather: weather[indexPath.row])
+        return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 15
+        return weather.count
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        navigationController?.pushViewController(WeatherViewController(), animated: true)
+        let viewController = WeatherViewController()
+        viewController.setWeather(weather: weather[indexPath.row])
+    
+        navigationController?.pushViewController(viewController, animated: true)
         //navigationController : 화면의 이동을 관리하는 컨트롤러
         //navigationController > 앞에 self가 생략됨.
         //UIViewController안에 있음
@@ -81,5 +97,4 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
 }
-
 

@@ -15,6 +15,7 @@
 		95977462280BFD3B00D91BDD /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 95977461280BFD3B00D91BDD /* SnapKit */; };
 		95977464280C06D000D91BDD /* WeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95977463280C06D000D91BDD /* WeatherCell.swift */; };
 		95977466280C28AD00D91BDD /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95977465280C28AD00D91BDD /* WeatherViewController.swift */; };
+		95F1590328153D18004207B2 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F1590228153D18004207B2 /* Weather.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		9597745E280BF76200D91BDD /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		95977463280C06D000D91BDD /* WeatherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCell.swift; sourceTree = "<group>"; };
 		95977465280C28AD00D91BDD /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
+		95F1590228153D18004207B2 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 		95977448280BE90600D91BDD /* weather */ = {
 			isa = PBXGroup;
 			children = (
+				95F1590128153D0C004207B2 /* Model */,
 				9597745D280BF73000D91BDD /* Main */,
 				95977449280BE90600D91BDD /* AppDelegate.swift */,
 				9597744B280BE90600D91BDD /* SceneDelegate.swift */,
@@ -78,6 +81,14 @@
 				95977465280C28AD00D91BDD /* WeatherViewController.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		95F1590128153D0C004207B2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				95F1590228153D18004207B2 /* Weather.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,6 +171,7 @@
 				95977466280C28AD00D91BDD /* WeatherViewController.swift in Sources */,
 				9597744A280BE90600D91BDD /* AppDelegate.swift in Sources */,
 				9597744C280BE90600D91BDD /* SceneDelegate.swift in Sources */,
+				95F1590328153D18004207B2 /* Weather.swift in Sources */,
 				9597745F280BF76200D91BDD /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

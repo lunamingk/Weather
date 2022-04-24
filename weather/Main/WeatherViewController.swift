@@ -14,6 +14,7 @@ class WeatherViewController: UIViewController {
     
     let locationLabel = UILabel()
     let emojiLabel =  UILabel()
+    let temperatureLabel = UILabel()
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,9 +27,8 @@ class WeatherViewController: UIViewController {
     
     func configure() {
         view.backgroundColor = .white
-        locationLabel.text = "서울"
-        emojiLabel.text = "🌞"
         locationLabel.font = .systemFont(ofSize: 30)
+        temperatureLabel.font = .systemFont(ofSize: 40)
         emojiLabel.font = .systemFont(ofSize: 30)
         locationLabel.textColor = .gray
         
@@ -37,6 +37,7 @@ class WeatherViewController: UIViewController {
     func setUpLayout() {
         view.addSubview(locationLabel)
         view.addSubview(emojiLabel)
+        view.addSubview(temperatureLabel)
         
         locationLabel.snp.makeConstraints{ make in
             make.left.equalToSuperview().inset(20)
@@ -48,9 +49,20 @@ class WeatherViewController: UIViewController {
             make.left.equalTo(locationLabel.snp.right).offset(10)
             make.top.equalToSuperview().inset(80)
         }
+        
+        temperatureLabel.snp.makeConstraints{ make in
+            make.left.equalToSuperview().inset(20)
+            make.top.equalTo(locationLabel.snp.bottom).offset(10)
+        }
     }
 
-  
+    func setWeather (weather: Weather) {
+        locationLabel.text = weather.location
+        emojiLabel.text = weather.emoji
+        temperatureLabel.text = "\(weather.temperature)°C"
+        
+        
+    }
 }
 
 
