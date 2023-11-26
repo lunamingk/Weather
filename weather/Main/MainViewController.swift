@@ -5,6 +5,8 @@
 //  Created by  문민경 on 2022/04/17.
 //
 
+//This is written by Github
+
 import UIKit
 import SnapKit
 
